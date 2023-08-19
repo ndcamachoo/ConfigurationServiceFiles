@@ -16,7 +16,7 @@ server:
 
 eureka:
   instance:
-    hostname: localhost
+    hostname: ${MS_HOST:localhost}
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
   client:
     service-url:
