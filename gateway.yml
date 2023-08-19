@@ -23,13 +23,13 @@ spring:
               - OPTIONS
 
       routes:
-        - id: movie
+        - id: ms-movie
           uri: lb://movie-service
           predicates:
             - Path=/movies/**
 
 
-        - id: catalog
+        - id: ms-catalog
           uri: lb://catalog-service
           predicates:
             - Path=/catalogs/**
