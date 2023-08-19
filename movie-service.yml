@@ -1,11 +1,9 @@
-server:
-  port: ${PORT:${SERVER_PORT:0}}
 spring:
   application:
     name: movie-service
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3370/movie-dev
+    url: jdbc:mysql://${DB_HOST:localhost}:3306/movie-dev
     username: usr-movie
     password: pwd-movie
   jpa:
@@ -13,18 +11,13 @@ spring:
     generate-ddl: true
     show-sql: true
 
-message: "hello world"
+server:
+  port: ${PORT:0}
 
 eureka:
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    registry-fetch-interval-seconds: 5
-    healthcheck:
-      enabled: true
-    service-url:
-      default-zone: http://localhost:8761/eureka
   instance:
-    prefer-ip-address: true
-    lease-renewal-interval-in-seconds: 5
-    lease-expiration-duration-in-seconds: 10
+    hostname: localhost
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  client:
+    service-url:
+      defaultZone: http://${EUREKA_HOST:localhost}:8761/eureka
