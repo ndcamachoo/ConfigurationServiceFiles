@@ -15,4 +15,4 @@ eureka:
 spring:
   data:
     mongodb:
-      uri: mongodb://${MONGO_USER:user}:${MONGO_PASS:dhbackend}@${MONGO_HOST:localhost}:${MONGO_PORT:27017}/${MONGO_DB:backend_specialization}?authSource=admin
+      uri: mongodb://${MONGO_USER:user}:${MONGO_PASS:dhbackend}@${MONGO_HOST:localhost}:${MONGO_PORT:27017}/${MONGO_DB:backend_specialization}?authSource=admin&authMechanism=SCRAM-SHA-1
