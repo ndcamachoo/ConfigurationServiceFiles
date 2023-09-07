@@ -12,3 +12,19 @@ management:
 info:
   env:
     enabled: true
+
+
+queue:
+  movie:
+    name: movie-queue
+  serie:
+    name: serie-queue
+  catalog:
+    name: catalog-queue
+
+spring:
+  rabbitmq:
+    host: rabbitmq
+    port: 5672
+    username: guest
+    password: guest
